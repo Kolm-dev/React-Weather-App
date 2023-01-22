@@ -1,0 +1,12 @@
+.app {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  color: #ff7a45;
+  font-size: 2rem;
+  font-family: face;
+}
