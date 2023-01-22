@@ -8,12 +8,14 @@
 Запуск локального сервера для разработки
 
 ```bash
+  npm install
   npm start
 ```
     
 Продакшн версия проекта
 
 ```bash
+  npm install
   npm build
 ```
     
