@@ -2,12 +2,13 @@ import "./App.css";
 import Login from "./components/Login";
 import {Route, Routes} from "react-router-dom";
 import Weather from "./components/Weather";
-import {Typography} from "antd";
+import {ProPageHeader} from "@ant-design/pro-layout";
+import "antd/dist/reset.css";
 
 function App() {
   return (
     <div className="app">
-      <Typography.Title style={{color: "#fa8c16"}}>Weather APP</Typography.Title>
+      <ProPageHeader title="Weather App" />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/app" element={<Weather />} />

@@ -1,10 +1,10 @@
 import React, {useEffect} from "react";
 import {useLocation} from "react-router-dom";
-import {Loading3QuartersOutlined} from "@ant-design/icons";
+import {Loading3QuartersOutlined, FieldTimeOutlined, HomeOutlined} from "@ant-design/icons";
 import "./Weather.css";
 import axios from "axios";
 import {Link} from "react-router-dom";
-import {Typography, Spin, Button} from "antd";
+import {Typography, Spin, Button, Divider} from "antd";
 
 const spinStyle = {
   margin: "25% 50%",
@@ -19,15 +19,6 @@ const antIcon = (
     spin
   />
 );
-
-const tempStyle = {
-  color: "#ff4d4f",
-  fontSize: "18px",
-};
-const cityStyle = {
-  color: "#ff4d4f",
-  fontSize: "18px",
-};
 
 const Weather = () => {
   const key = useLocation();
@@ -46,24 +37,27 @@ const Weather = () => {
       .catch(() => alert("Проверьте данные!"));
   }, []);
   return (
-    <div className="background">
+    <div>
+      <Divider />
       {data.city && data.temp ? (
         <>
           <div className="info">
-            <Typography.Text style={tempStyle} strong color="green">
-              Время: {data.time}
+            <Typography.Text className="properties" strong color="green">
+              <span className="label">Время</span> <FieldTimeOutlined size={"15"} /> {data.time}
             </Typography.Text>
-            <Typography.Text style={cityStyle} strong color="blue">
-              Город: {`${data.city}/${data.country}`}
+            <Typography.Text className="properties" strong color="blue">
+              <span className="label">Город</span> <HomeOutlined /> {`${data.city}/${data.country}`}
             </Typography.Text>
-            <Typography.Text style={tempStyle} strong color="green">
-              Температура: {parseInt(data.temp)}°C
+            <Typography.Text className="properties" strong color="green">
+              <span className="label">Температура</span> {parseInt(data.temp)}°C
             </Typography.Text>
           </div>
-
+          <Divider />
           <div className="goHome">
             <Link to="/">
-              <Button type="primary">Посмотреть в другом городе</Button>
+              <Button className="goHome" type="primary">
+                Посмотреть в другом городе
+              </Button>
             </Link>
           </div>
         </>
